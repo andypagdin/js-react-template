@@ -3,13 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     mode: 'production',
-    entry: ['@babel/polyfill', './src/index.js'],
+    entry: './src/index.js',
     devServer: {
         historyApiFallback: true,
         contentBase: './'
     },
     output: {
-        filename: './index.prod.js',
+        filename: './index-bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
@@ -20,13 +20,19 @@ module.exports = {
                     path.resolve(__dirname, 'src')
                 ],
                 exclude: /node_modules/,
-                loader: 'babel-loader',
-                options: {
-                    presets: [
-                        '@babel/preset-env',
-                        '@babel/preset-react'
-                    ]
-                }
+                loader: ['babel-loader', 'eslint-loader']
+            },
+            {
+                test: /\.css$/,
+                loader: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                loader: ['file-loader']
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                loader: ['file-loader']
             }
         ]
     },
