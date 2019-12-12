@@ -3,7 +3,7 @@
 npm i
 npm i react-redux redux prop-types
 
-#  modify index.js
+# modify index.js
 curl https://gist.githubusercontent.com/andypagdin/a7f6cd112cfdfd53f68b66533c7f0063/raw -o ../src/index.js
 
 # make reducers
