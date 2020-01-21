@@ -5,7 +5,7 @@ import Home from './home'
 import About from './about'
 import PageNotFound from './page-not-found'
 
-export default function app () {
+const App = () => {
   return (
     <Router>
       <Switch>
@@ -16,3 +16,5 @@ export default function app () {
     </Router>
   )
 }
+
+export default App
